@@ -23,7 +23,9 @@ export class GetCategoriesController {
       const getCategories = await prismaClient.category.findMany();
       return response.status(200).json(getCategories);
     } catch (error) {
-      return response.status(500).json({ error: 'An error occurred while getting categories' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while getting categories' });
     }
   }
 }

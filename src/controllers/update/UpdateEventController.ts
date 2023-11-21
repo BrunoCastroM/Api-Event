@@ -4,11 +4,13 @@ import { prismaClient } from '../../database/prismaClient';
 export class UpdateEventController {
   async handle(request: Request, response: Response) {
     try {
-      const eventId = request.params.id
+      const eventId = request.params.id;
       const { name, date, description, categoryId, locationId } = request.body;
 
       // Verificando se o evento existe
-      const existingEvent = await prismaClient.event.findUnique({ where: { id: eventId } });
+      const existingEvent = await prismaClient.event.findUnique({
+        where: { id: eventId },
+      });
 
       if (!existingEvent) {
         return response.status(404).json({ error: 'Event not found' });
@@ -28,7 +30,9 @@ export class UpdateEventController {
 
       return response.status(200).json(updatedEvent);
     } catch (error) {
-      return response.status(500).json({ error: 'An error occurred while updating the event' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while updating the event' });
     }
   }
 }

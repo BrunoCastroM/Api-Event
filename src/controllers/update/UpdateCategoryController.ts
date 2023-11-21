@@ -7,9 +7,10 @@ export class UpdateCategoryController {
       const categoryId = request.params.id;
       const { name } = request.body;
 
-
       // Verificando se a categoria existe
-      const existingCategory = await prismaClient.category.findUnique({ where: { id: categoryId } });
+      const existingCategory = await prismaClient.category.findUnique({
+        where: { id: categoryId },
+      });
 
       if (!existingCategory) {
         return response.status(404).json({ error: 'Category not found' });
@@ -25,7 +26,9 @@ export class UpdateCategoryController {
 
       return response.status(200).json(updatedCategory);
     } catch (error) {
-      return response.status(500).json({ error: 'An error occurred while updating the category' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while updating the category' });
     }
   }
 }

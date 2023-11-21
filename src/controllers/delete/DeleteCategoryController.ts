@@ -20,9 +20,13 @@ export class DeleteCategoryController {
         where: { id: categoryId },
       });
 
-      return response.status(204).json({ message: 'Category deleted successfully' });
+      return response
+        .status(204)
+        .json({ message: 'Category deleted successfully' });
     } catch (error) {
-      return response.status(500).json({ error: 'An error occurred while deleting the category' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while deleting the category' });
     }
   }
 }

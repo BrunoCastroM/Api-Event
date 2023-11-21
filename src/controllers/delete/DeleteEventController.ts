@@ -20,9 +20,13 @@ export class DeleteEventController {
         where: { id: eventId },
       });
 
-      return response.status(204).json({ message: 'Event deleted successfully' });
+      return response
+        .status(204)
+        .json({ message: 'Event deleted successfully' });
     } catch (error) {
-      return response.status(500).json({ error: 'An error occurred while deleting the event' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while deleting the event' });
     }
   }
 }

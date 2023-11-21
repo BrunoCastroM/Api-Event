@@ -28,12 +28,14 @@ export class GetEventsController {
         include: {
           category: true,
           location: true,
-        }
+        },
       });
       return response.status(200).json(getEvents);
     } catch (error) {
       console.error('Error getting events:', error);
-      return response.status(500).json({ error: 'An error occurred while getting events' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while getting events' });
     }
   }
 }

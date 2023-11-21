@@ -1,19 +1,3 @@
-// import { Request, Response } from 'express';
-// import { prismaClient } from '../../database/prismaClient';
-
-// export class GetLocationController {
-//   async handle(_: Request, response: Response) {
-//     try {
-//       const getLocations = await prismaClient.location.findMany();
-
-//       return response.status(200).json(getLocations);
-//     } catch (error) {
-//       return response.status(500).json({ error: 'An error occurred while getting locations' });
-//     }
-//   }
-// }
-
-
 import { Request, Response } from 'express';
 import { prismaClient } from '../../database/prismaClient';
 
@@ -40,7 +24,9 @@ export class GetLocationsController {
       return response.status(200).json(getLocations);
     } catch (error) {
       console.error('Error getting locations:', error);
-      return response.status(500).json({ error: 'An error occurred while getting locations' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while getting locations' });
     }
   }
 }

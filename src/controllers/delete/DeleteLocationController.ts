@@ -20,9 +20,13 @@ export class DeleteLocationController {
         where: { id: locationId },
       });
 
-      return response.status(204).json({ message: 'Location deleted successfully' });
+      return response
+        .status(204)
+        .json({ message: 'Location deleted successfully' });
     } catch (error) {
-      return response.status(500).json({ error: 'An error occurred while deleting the location' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while deleting the location' });
     }
   }
 }

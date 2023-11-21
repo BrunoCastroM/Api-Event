@@ -8,7 +8,9 @@ export class UpdateLocationController {
       const { name, address } = request.body;
 
       // Verificando se o local existe
-      const existingLocation = await prismaClient.location.findUnique({ where: { id: locationId } });
+      const existingLocation = await prismaClient.location.findUnique({
+        where: { id: locationId },
+      });
 
       if (!existingLocation) {
         return response.status(404).json({ error: 'Location not found' });
@@ -25,7 +27,9 @@ export class UpdateLocationController {
 
       return response.status(200).json(updatedLocation);
     } catch (error) {
-      return response.status(500).json({ error: 'An error occurred while updating the location' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while updating the location' });
     }
   }
 }

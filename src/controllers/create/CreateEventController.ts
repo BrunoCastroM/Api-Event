@@ -7,7 +7,9 @@ export class CreateEventController {
       const { name, date, description, categoryId, locationId } = request.body;
 
       if (!name || !date || !categoryId || !locationId) {
-        return response.status(400).json({ error: 'Mandatory fields not filled in' });
+        return response
+          .status(400)
+          .json({ error: 'Mandatory fields not filled in' });
       }
 
       const eventDate = new Date(date);
@@ -34,7 +36,9 @@ export class CreateEventController {
       });
     } catch (error) {
       console.error('Error creating the Event:', error);
-      return response.status(500).json({ error: 'An error occurred while creating the Event' });
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while creating the Event' });
     }
   }
 }

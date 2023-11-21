@@ -15,8 +15,10 @@ export class CreateCategoryController {
 
       return response.status(201).json(category);
     } catch (error) {
-      console.error("Error creating category:", error)
-      return response.status(500).json({ error: 'An error occurred while creating the category' });
+      console.error('Error creating category:', error);
+      return response
+        .status(500)
+        .json({ error: 'An error occurred while creating the category' });
     }
   }
 }
