@@ -67,6 +67,16 @@
     - **Listar todos os eventos:**
         - Método: GET
         - Endpoint: `http://localhost:3001/event/`
+    - **Listar eventos pela Categoria:**
+        - Método: GET
+        - Endpoint: `http://localhost:3001/events/category/nome da categoria`
+    - **Listar eventos pelo Local:**
+        - Método: GET
+        - Endpoint: `http://localhost:3001/events/location/nome do local`
+    - **Listar eventos pela Data:**
+        - Método: GET
+        - Endpoint: `http://localhost:3001/events/date/yyyy-mm-dd`
+        - Exemplo: `http://localhost:3001/events/date/2023-11-18`
     - **Listar um evento específico:**
         - Método: GET
         - Endpoint: `http://localhost:3001/event/id`
@@ -111,12 +121,15 @@
     - **Deletar um Evento:**
         - Método: DELETE
         - Endpoint: `http://localhost:3001/event/id`
+        - Eventos podem ser deletetados normalmente
     - **Deletar uma Categoria:**
         - Método: DELETE
         - Endpoint: `http://localhost:3001/category/id`
+        - Categoria só pode ser deletada se os eventos relacionados com a categoria específica forem deletados
     - **Deletar um Local:**
         - Método: DELETE
         - Endpoint: `http://localhost:3001/location/id`
+        - Local só pode ser deletado se os eventos relacionados ao local forem deletados
 7. Estrutura de dados:
     1. **Event:**
         - **id**: Identificador único do evento (UUID).
