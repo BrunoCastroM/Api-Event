@@ -13,7 +13,6 @@ export class CreateEventController {
       }
 
       const eventDate = new Date(date);
-      eventDate.setUTCHours(0, 0, 0, 0);
 
       const event = await prismaClient.event.create({
         include: {
